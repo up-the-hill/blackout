@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Blackout",
+  "description": "Blackout poetry in the interwebs.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "icons": {
+    "48": "icons/scribble-48.png"
+  },
+  "action": {
+    "default_icon": "icons/scribble-32.png",
+    "theme_icons": [
+      {
+        "light": "icons/scribble-32.png",
+        "dark": "icons/scribble-32.png",
+        "size": 32
+      }
+    ],
+    "default_title": "Blackout"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "service_worker": "background.js"
+  }
+}
