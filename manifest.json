@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "version": "1.0",
+  "version": "1.1",
   "name": "Blackout",
   "description": "Blackout poetry in the interwebs.",
   "permissions": [
@@ -8,14 +8,17 @@
     "scripting"
   ],
   "icons": {
-    "48": "icons/scribble-48.png"
+    "128": "icons/scribble-128.png",
+    "96": "icons/scribble-96.png",
+    "48": "icons/scribble-48.png",
+    "32": "icons/scribble-32.png"
   },
   "action": {
     "default_icon": "icons/scribble-32.png",
     "theme_icons": [
       {
         "light": "icons/scribble-32.png",
-        "dark": "icons/scribble-32.png",
+        "dark": "icons/scribble-32-dark.png",
         "size": 32
       }
     ],
@@ -26,5 +29,10 @@
       "background.js"
     ],
     "service_worker": "background.js"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "blackout@up-the-hill"
+    }
   }
 }
