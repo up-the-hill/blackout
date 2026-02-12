@@ -10,7 +10,9 @@ A browser extension to make blackout poetry on the interwebs.
 ## Get Extension
 
 Firefox:
+
 https://addons.mozilla.org/en-US/firefox/addon/blackout-poetry/
 
 Chrome/Brave/all Chromium-based browsers:
+
 https://chromewebstore.google.com/detail/ffcdlpjolgglihiapammdhbdogcgjbki
