@@ -32,7 +32,12 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "blackout@up-the-hill"
+      "id": "blackout@up-the-hill",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
     }
   }
 }
