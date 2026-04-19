@@ -17,8 +17,8 @@
     "default_icon": "icons/scribble-32.png",
     "theme_icons": [
       {
-        "light": "icons/scribble-32.png",
-        "dark": "icons/scribble-32-dark.png",
+        "light": "icons/scribble-32-dark.png",
+        "dark": "icons/scribble-32.png",
         "size": 32
       }
     ],
