@@ -1,0 +1,42 @@
+name: Package and Release
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Validate Version Match
+        id: validate
+        run: |
+          # Get version from tag
+          TAG_VERSION=${GITHUB_REF_NAME#v}
+
+          # Get version from manifest.json
+          MANIFEST_VERSION=$(jq -r .version manifest.json)
+
+          echo "Tag version: $TAG_VERSION"
+          echo "Manifest version: $MANIFEST_VERSION"
+
+          if [ "$TAG_VERSION" != "$MANIFEST_VERSION" ]; then
+            echo "::error::Version mismatch! Tag is $TAG_VERSION but manifest.json is $MANIFEST_VERSION"
+            exit 1
+          fi
+
+          echo "VERSION=$MANIFEST_VERSION" >> $GITHUB_ENV
+      - name: Create Zip file
+        run: |
+          # Package only the files needed for the extension
+          zip -r "blackout_v${{ env.VERSION }}.zip" manifest.json background.js content.js icons/ LICENSE
+      - name: Create Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          files: blackout_v${{ env.VERSION }}.zip
+          generate_release_notes: true
