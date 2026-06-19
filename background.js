@@ -14,9 +14,15 @@ chrome.action.onClicked.addListener(async (tab) => {
         css: `.blackout { background-color: black; color: black;}`,
       });
       await chrome.tabs.sendMessage(tab.id, { action: "turn-off" });
+      const [{ result: isDark }] = await chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        func: () => window.matchMedia("(prefers-color-scheme: dark)").matches,
+      });
       await chrome.action.setIcon({
         tabId: tab.id,
-        path: null
+        path: isDark
+          ? { "32": "icons/scribble-32-dark.png", "48": "icons/scribble-48-dark.png", "96": "icons/scribble-96-dark.png", "128": "icons/scribble-128-dark.png" }
+          : { "32": "icons/scribble-32.png", "48": "icons/scribble-48.png", "96": "icons/scribble-96.png", "128": "icons/scribble-128.png" },
       });
     } catch (err) {
       console.error(`failed to toggle off: ${err}`);

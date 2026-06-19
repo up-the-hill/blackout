@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "version": "1.2.1",
+  "version": "1.2.2",
   "name": "Blackout",
   "description": "Blackout poetry in the interwebs.",
   "permissions": [
@@ -14,13 +14,17 @@
     "32": "icons/scribble-32.png"
   },
   "action": {
-    "default_icon": "icons/scribble-32.png",
+    "default_icon": {
+      "32": "icons/scribble-32-dark.png",
+      "48": "icons/scribble-48-dark.png",
+      "96": "icons/scribble-96-dark.png",
+      "128": "icons/scribble-128-dark.png"
+    },
     "theme_icons": [
-      {
-        "light": "icons/scribble-32-dark.png",
-        "dark": "icons/scribble-32.png",
-        "size": 32
-      }
+      { "light": "icons/scribble-32-dark.png", "dark": "icons/scribble-32.png", "size": 32 },
+      { "light": "icons/scribble-48-dark.png", "dark": "icons/scribble-48.png", "size": 48 },
+      { "light": "icons/scribble-96-dark.png", "dark": "icons/scribble-96.png", "size": 96 },
+      { "light": "icons/scribble-128-dark.png", "dark": "icons/scribble-128.png", "size": 128 }
     ],
     "default_title": "Blackout"
   },
